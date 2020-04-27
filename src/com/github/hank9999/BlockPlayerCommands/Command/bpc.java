@@ -91,7 +91,10 @@ public class bpc implements TabExecutor {
         }
         return true;
     }
+
     private String[] Commands = {"help", "reload", "list", "add", "del"};
+
+    @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
         if (args.length == 0) return Arrays.asList(Commands);
         if (args[0].equalsIgnoreCase("add")) {

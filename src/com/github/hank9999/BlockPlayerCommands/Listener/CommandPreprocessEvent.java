@@ -9,6 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
 public class CommandPreprocessEvent implements Listener {
+
     @EventHandler(priority = EventPriority.LOWEST)
     public void onCommands(PlayerCommandPreprocessEvent e) {
         if (BlockPlayerCommands.plugin.getConfig().getBoolean("enable")) {
