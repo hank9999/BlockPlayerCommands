@@ -1,0 +1,14 @@
+name: BlockPlayerCommands
+main: com.github.hank9999.BlockPlayerCommands.BlockPlayerCommands
+version: 1.0.0
+author: hank9999
+
+permissions:
+  BlockPlayerCommands.controllist:
+    description: BlockPlayerCommands ControlList Perm
+    default: op
+
+commands:
+  blockplayercommands:
+    aliases: [bpc]
+    description: BlockPlayerCommands Main Command

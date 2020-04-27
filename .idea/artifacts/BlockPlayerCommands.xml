@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="BlockPlayerCommands">
+    <output-path>$PROJECT_DIR$/out/artifacts/BlockPlayerCommands</output-path>
+    <root id="archive" name="BlockPlayerCommands.jar">
+      <element id="module-output" name="BlockPlayerCommands" />
+      <element id="file-copy" path="$PROJECT_DIR$/plugin.yml" />
+      <element id="file-copy" path="$PROJECT_DIR$/config.yml" />
+    </root>
+  </artifact>
+</component>
