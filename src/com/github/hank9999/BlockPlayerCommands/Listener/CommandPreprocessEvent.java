@@ -14,7 +14,7 @@ public class CommandPreprocessEvent implements Listener {
         if (BlockPlayerCommands.plugin.getConfig().getBoolean("enable")) {
             Player p = e.getPlayer();
             String name = p.getName();
-            for (String playername : BlockPlayerCommands.plugin.getConfig().getStringList("blocklist")) {
+            for (String playername : BlockPlayerCommands.plugin.getConfig().getStringList("blacklist")) {
                 if (playername.equalsIgnoreCase(name)) {
                     e.setCancelled(true);
                     String message = BlockPlayerCommands.plugin.getConfig().getString("message");

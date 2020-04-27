@@ -35,11 +35,11 @@ public class bpc implements TabExecutor {
             }
             if (strings[0].equalsIgnoreCase("list")) {
                 commandSender.sendMessage(Lib.color_translate("&2[&eBPC&2] &rPlayer Black List:"));
-                if (BlockPlayerCommands.plugin.getConfig().getStringList("blocklist").size() == 0) {
+                if (BlockPlayerCommands.plugin.getConfig().getStringList("blacklist").size() == 0) {
                     commandSender.sendMessage(Lib.color_translate(" - &3Null"));
                     return true;
                 }
-                for (String playername : BlockPlayerCommands.plugin.getConfig().getStringList("blocklist")) {
+                for (String playername : BlockPlayerCommands.plugin.getConfig().getStringList("blacklist")) {
                     if (playername.equalsIgnoreCase("")) {
                         continue;
                     }
@@ -52,13 +52,13 @@ public class bpc implements TabExecutor {
                     commandSender.sendMessage(Lib.color_translate("&2[&eBPC&2] &rPlease add with playername"));
                     return true;
                 }
-                List<String> temp = BlockPlayerCommands.plugin.getConfig().getStringList("blocklist");
+                List<String> temp = BlockPlayerCommands.plugin.getConfig().getStringList("blacklist");
                 boolean containsSearchStr = temp.stream().anyMatch(strings[1]::equalsIgnoreCase);
                 if (containsSearchStr) {
                     commandSender.sendMessage(Lib.color_translate("&2[&eBPC&2] &rThis black player already exists"));
                 } else {
                     temp.add(strings[1]);
-                    BlockPlayerCommands.plugin.getConfig().set("blocklist", temp);
+                    BlockPlayerCommands.plugin.getConfig().set("blacklist", temp);
                     BlockPlayerCommands.plugin.saveConfig();
                     BlockPlayerCommands.plugin.reloadConfig();
                     String message = Lib.color_translate("&2[&eBPC&2] &9" + commandSender.getName() + " &radd a black player &3" + strings[1]);
@@ -72,10 +72,10 @@ public class bpc implements TabExecutor {
                     commandSender.sendMessage(Lib.color_translate("&2[&eBPC&2] &rPlease add with playername"));
                     return true;
                 }
-                List<String> temp = BlockPlayerCommands.plugin.getConfig().getStringList("blocklist");
+                List<String> temp = BlockPlayerCommands.plugin.getConfig().getStringList("blacklist");
                 if (temp.contains(strings[1])) {
                     temp.remove(strings[1]);
-                    BlockPlayerCommands.plugin.getConfig().set("blocklist", temp);
+                    BlockPlayerCommands.plugin.getConfig().set("blacklist", temp);
                     BlockPlayerCommands.plugin.saveConfig();
                     BlockPlayerCommands.plugin.reloadConfig();
                     String message = Lib.color_translate("&2[&eBPC&2] &9" + commandSender.getName() + " &rdel a black player &3" + strings[1]);
@@ -98,7 +98,7 @@ public class bpc implements TabExecutor {
             return null;
         }
         if (args[0].equalsIgnoreCase("del")) {
-            return BlockPlayerCommands.plugin.getConfig().getStringList("blocklist");
+            return BlockPlayerCommands.plugin.getConfig().getStringList("blacklist");
         }
         if (args.length > 1) return new ArrayList<>();
         return Arrays.stream(Commands).filter(s -> s.startsWith(args[0])).collect(Collectors.toList());
